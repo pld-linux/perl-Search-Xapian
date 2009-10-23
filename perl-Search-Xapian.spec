@@ -5,7 +5,7 @@
 Summary:	Search::Xapian - Perl XS frontend to the Xapian C++ search library
 Name:		perl-Search-Xapian
 Version:	%{basever}.0
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -53,11 +53,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
+%dir %{perl_vendorarch}/Search
 %{perl_vendorarch}/Search/*.pm
 %dir %{perl_vendorarch}/Search/Xapian
 %{perl_vendorarch}/Search/Xapian/*.pm
 %dir %{perl_vendorarch}/Search/Xapian/MSet
 %{perl_vendorarch}/Search/Xapian/MSet/Tied.pm
+%dir %{perl_vendorarch}/auto/Search
 %dir %{perl_vendorarch}/auto/Search/Xapian
 %{perl_vendorarch}/auto/Search/Xapian/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Search/Xapian/*.so
