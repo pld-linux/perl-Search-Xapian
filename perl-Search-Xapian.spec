@@ -1,28 +1,36 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Search
 %define		pnam	Xapian
-%define		basever	1.2.9
+%define		basever	1.2.12
 Summary:	Search::Xapian - Perl XS frontend to the Xapian C++ search library
+Summary(pl.UTF-8):	Search::Xapian - interfejs Perlowy XS do biblioteki wyszukiwania Xapian
 Name:		perl-Search-Xapian
 Version:	%{basever}.0
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Search/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	2afcdc7ed75d4a7f6e8b0e3175053c48
+#Source0:	http://www.cpan.org/modules/by-module/Search/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://oligarchy.co.uk/xapian/%{basever}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	db4b1679c71da69d82c29f85402fdb5a
 URL:		http://search.cpan.org/dist/Search-Xapian/
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	xapian-core-devel = %{basever}
+Requires:	xapian-core-libs >= %{basever}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This module wraps most methods of most Xapian classes. The missing
 classes and methods should be added in the future. It also provides a
-simplified, more 'perlish' interface to some common operations, as
-demonstrated above.
+simplified, more 'perlish' interface to some common operations.
+
+%description -l pl.UTF-8
+Ten moduł obudowuje większość metod z większości klas Xapiana.
+Brakujące klasy i metody powinny być dodane w przyszłości. Moduł
+udostępnia także uproszczony, bardziej perlowy interfejs do niektórych
+popularnych operacji.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -54,16 +62,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README
 %dir %{perl_vendorarch}/Search
-%{perl_vendorarch}/Search/*.pm
+%{perl_vendorarch}/Search/Xapian.pm
 %dir %{perl_vendorarch}/Search/Xapian
 %{perl_vendorarch}/Search/Xapian/*.pm
 %dir %{perl_vendorarch}/Search/Xapian/MSet
 %{perl_vendorarch}/Search/Xapian/MSet/Tied.pm
 %dir %{perl_vendorarch}/auto/Search
 %dir %{perl_vendorarch}/auto/Search/Xapian
-%{perl_vendorarch}/auto/Search/Xapian/*.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/Search/Xapian/*.so
-
-%{_mandir}/man3/Search::Xapian*
-
+%{perl_vendorarch}/auto/Search/Xapian/Xapian.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Search/Xapian/Xapian.so
+%{_mandir}/man3/Search::Xapian*.3pm*
 %{_examplesdir}/%{name}-%{version}
