@@ -69,7 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Search/Xapian/MSet/Tied.pm
 %dir %{perl_vendorarch}/auto/Search
 %dir %{perl_vendorarch}/auto/Search/Xapian
-%{perl_vendorarch}/auto/Search/Xapian/Xapian.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Search/Xapian/Xapian.so
 %{_mandir}/man3/Search::Xapian*.3pm*
 %{_examplesdir}/%{name}-%{version}
