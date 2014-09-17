@@ -1,18 +1,18 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Search
 %define		pnam	Xapian
-%define		basever	1.2.12
+%define		basever	1.2.18
 Summary:	Search::Xapian - Perl XS frontend to the Xapian C++ search library
 Summary(pl.UTF-8):	Search::Xapian - interfejs Perlowy XS do biblioteki wyszukiwania Xapian
 Name:		perl-Search-Xapian
 Version:	%{basever}.0
-Release:	4
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/Search/%{pdir}-%{pnam}-%{version}.tar.gz
 Source0:	http://oligarchy.co.uk/xapian/%{basever}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	db4b1679c71da69d82c29f85402fdb5a
+# Source0-md5:	8f0f3bbe19e0b6da67dc1794ea88e2c5
 URL:		http://search.cpan.org/dist/Search-Xapian/
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-devel >= 1:5.8.0
