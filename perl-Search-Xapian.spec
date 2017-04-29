@@ -1,23 +1,30 @@
+#
+# Conditional build:
+%bcond_without	tests	# do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Search
 %define		pnam	Xapian
-%define		basever	1.2.23
+%define		basever	1.2.24
 Summary:	Search::Xapian - Perl XS frontend to the Xapian C++ search library
 Summary(pl.UTF-8):	Search::Xapian - interfejs Perlowy XS do biblioteki wyszukiwania Xapian
 Name:		perl-Search-Xapian
 Version:	%{basever}.0
-Release:	2
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/Search/%{pdir}-%{pnam}-%{version}.tar.gz
 Source0:	http://oligarchy.co.uk/xapian/%{basever}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	9b52b1aaef20b6904df7237b6ea71085
+# Source0-md5:	01206bf2cc71c5b3a6258a01daabfc43
 URL:		http://search.cpan.org/dist/Search-Xapian/
 BuildRequires:	libstdc++-devel
+%if %{with tests}
+BuildRequires:	perl-Devel-Leak
+%endif
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	xapian-core-devel = %{basever}
+BuildRequires:	xapian-core-devel >= %{basever}
 Requires:	xapian-core-libs >= %{basever}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
