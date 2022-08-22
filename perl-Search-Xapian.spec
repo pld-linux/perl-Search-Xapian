@@ -9,7 +9,7 @@ Summary:	Search::Xapian - Perl XS frontend to the Xapian C++ search library
 Summary(pl.UTF-8):	Search::Xapian - interfejs Perlowy XS do biblioteki wyszukiwania Xapian
 Name:		perl-Search-Xapian
 Version:	%{basever}.0
-Release:	7
+Release:	8
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
