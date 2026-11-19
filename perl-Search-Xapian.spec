@@ -8,14 +8,13 @@
 Summary:	Search::Xapian - Perl XS frontend to the Xapian C++ search library
 Summary(pl.UTF-8):	Search::Xapian - interfejs Perlowy XS do biblioteki wyszukiwania Xapian
 Name:		perl-Search-Xapian
-Version:	%{basever}.0
-Release:	12
+Version:	1.2.25.7
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-#Source0:	http://www.cpan.org/modules/by-module/Search/%{pdir}-%{pnam}-%{version}.tar.gz
-Source0:	http://oligarchy.co.uk/xapian/%{basever}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	01206bf2cc71c5b3a6258a01daabfc43
+Source0:	https://www.cpan.org/authors/id/O/OL/OLLY/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	3d6a6c56525cff184d948fb2f21bd034
 URL:		http://search.cpan.org/dist/Search-Xapian/
 BuildRequires:	libstdc++-devel
 %if %{with tests}
@@ -57,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# build-time data for generate-perl-exceptions, not a module
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/Search/exception_data.pm
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
